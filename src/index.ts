@@ -40,6 +40,6 @@ app.use(passport.session());
 app.use("/auth/google", authRoutes);
 app.use("/api", userApi);
 
-app.listen(3000, () => {
+app.listen(5000, () => {
   console.log("Server on port 3000");
 });

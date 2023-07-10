@@ -1,0 +1,12 @@
+body{
+    margin: 0;
+    padding: 0;
+
+}
+body::-webkit-scrollbar{
+width:0.25rem
+}
+
+body::-webkit-scrollbar-thumb{
+background: #6649b8;
+}
