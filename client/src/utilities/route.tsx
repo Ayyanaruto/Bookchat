@@ -1,16 +1,16 @@
-import LoginStatus from "./LoginStatus";
+import ProfilePage from "../components/ProfilePage";
 interface RouteConfig {
     path: string;
     element: JSX.Element;
 }
 
-const ProfilePage = () => {
-  return (
-    <div>
-      <h1>Profile Page</h1>
-    </div>
-  );
-}
+// const ProfilePage = () => {
+//   return (
+//     <div>
+//       <h1>Profile Page</h1>
+//     </div>
+//   );
+// }
 const ProductsPage = () => {
   return (
     <div>
@@ -41,8 +41,8 @@ const routes:RouteConfig[]=[
     },
   {
     path: '/profile',
-    element: <LoginStatus />
-  }
+    element: <ProfilePage/>
+  } 
   ,
   {
     path: '/products',

@@ -1,0 +1,65 @@
+
+.profile{
+   width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    flex-direction: column;
+    height: 100vh;
+    background-color:#12181b;
+    color: #FFFFFF;
+}
+.profile-header{
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    letter-spacing: 0.3ch;
+}
+.profile-data{
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    }
+.profile-data h2{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+.profile-data span{
+    font-weight: 700;
+}
+.profile-data span a{
+   font-size:small;
+   color:#2563EB;
+   text-decoration: none;
+}
+.sign-out button{
+    background-color: #FFFFFF;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    margin: 1rem 0;
+}
+.profile-icon{
+    height: 5rem;
+    width: 5rem;
+
+}
+.manage-item{
+      width: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+.manage-item button{
+    background-color:#3B82F6;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    margin: 1rem 0;
+}

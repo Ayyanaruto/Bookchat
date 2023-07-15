@@ -30,6 +30,7 @@ const App=():JSX.Element=>{
         </Routes>
       </div>
     </BrowserRouter>
+
   );
 }
 

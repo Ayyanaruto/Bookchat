@@ -1,41 +1,42 @@
 import React from "react";
 import "../styles/Header.css";
+import { Link } from "react-router-dom";
 
 import { AlienIcon, CartIcon, Logo, ProfileIcon, RocketIcon } from "./icons/icons";
 
-const Header: React.FC = () => {
+const Header:()=>JSX.Element=() => {
   return (
     <nav className="navbar">
       <ul className="navbar-nav">
         <li className="logo">
-          <a href="#" className="nav-link">
+          <Link to="#" className="nav-link">
             <Logo />
             <span className="link-text">MemeChat</span>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <Link to="#" className="nav-link">
             <CartIcon />
             <span className="link-text">Your Cart</span>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <Link to="#" className="nav-link">
             <RocketIcon />
             <span className="link-text">RetroRevamp</span>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <Link to="#" className="nav-link">
             <AlienIcon />
             <span className="link-text">Categories</span>
-          </a>
+          </Link>
         </li>
         <li className="nav-item last-child">
-          <a href="#" className="nav-link">
+          <Link to="#" className="nav-link">
             <ProfileIcon />
             <span className="link-text">Profile</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
