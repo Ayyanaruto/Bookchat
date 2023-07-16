@@ -52,5 +52,7 @@ const routes:RouteConfig[]=[
   {
     path: '/tshirt',
     element: <TshirtPage />
-  }]
+  },
+
+]
     export default routes;

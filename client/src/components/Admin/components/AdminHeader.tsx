@@ -1,37 +1,35 @@
 import React from "react";
-import "../styles/Header.css";
 import { Link } from "react-router-dom";
+import { Logo, CartIcon, ProfileIcon, AlienIcon, RocketIcon } from "../../../icons/icons";
 
-import {CartIcon, Logo, ProfileIcon} from "../icons/icons";
-
-const Header:()=>JSX.Element=() => {
+function AdminHeader(){
   return (
     <nav className="navbar">
       <ul className="navbar-nav">
         <li className="logo">
           <Link to="/" className="nav-link">
             <Logo />
-            <span className="link-text">MemeChat</span>
+            <span className="link-text">Admin</span>
           </Link>
         </li>
         <li className="nav-item">
           <Link to="#" className="nav-link">
             <CartIcon />
-            <span className="link-text">Your Cart</span>
+            <span className="link-text">Products</span>
           </Link>
         </li>
-        {/* <li className="nav-item">
+         <li className="nav-item">
           <Link to="#" className="nav-link">
             <RocketIcon />
-            <span className="link-text">RetroRevamp</span>
+            <span className="link-text">Orders</span>
           </Link>
-        </li> */}
-        {/* <li className="nav-item">
+        </li> 
+        <li className="nav-item">
           <Link to="#" className="nav-link">
             <AlienIcon />
-            <span className="link-text">Categories</span>
+            <span className="link-text">Users</span>
           </Link>
-        </li> */}
+        </li> 
         <li className="nav-item last-child">
           <Link to="/profile" className="nav-link">
             <ProfileIcon />
@@ -40,7 +38,6 @@ const Header:()=>JSX.Element=() => {
         </li>
       </ul>
     </nav>
-  );
-};
+  );}
 
-export default Header;
+export default AdminHeader

@@ -7,8 +7,6 @@
     padding: 50px;
     flex-direction: column;
     height: 100vh;
-    background-color:#12181b;
-    color: #FFFFFF;
 }
 .profile-header{
     font-weight: bolder;
@@ -36,12 +34,15 @@
    color:#2563EB;
    text-decoration: none;
 }
-.sign-out button{
+.sign-out a{
     background-color: #FFFFFF;
     border: none;
     padding: 0.5rem 1rem;
     font-weight: 500;
     margin: 1rem 0;
+    text-decoration: none;
+    color: var(--bg-primary);
+    font-weight: 600;
 }
 .profile-icon{
     height: 5rem;

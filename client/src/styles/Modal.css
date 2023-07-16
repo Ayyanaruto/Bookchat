@@ -1,0 +1,81 @@
+.modal{
+     width:100vw ;
+    height: 100vh; ;
+    backdrop-filter:blur(5px);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.modal-content{
+    width: 25rem;
+    height: 25rem;
+    background-color: var(--bg-primary);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:"fit-content";
+    /* box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px; */
+   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+   
+   
+}
+.modal-header{
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.modal-gif svg{
+    margin: 0;
+    width: 25rem;
+    height: 12rem;
+}
+.modal-body a{
+    background-color: var(--text-secondary);
+    padding: 0.8rem 1rem;
+   margin: 1rem 2rem;
+   border: none;
+   
+   text-decoration: none;
+    color: var(--bg-primary);
+    font-weight: 600;
+}
+/* .modal-body  a{
+    color: var(--bg-primary);
+    text-decoration: none;
+    font-weight: 700;
+} */
+.fa-google {
+	background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+  }
+
+@media only screen and (max-width:600px){
+
+   .modal-content{
+    width: 15rem;
+    height: 15rem;
+
+   }
+   .modal-gif svg{
+   width: 15rem;
+   height: 8rem;
+   }
+
+   .modal-header{
+    font-size: 0.9rem;
+   }
+   .modal-body a{
+    background-color: var(--text-secondary);
+    padding: 0.4rem;
+    margin:1rem;
+    margin-bottom: 0%;
+    
+}
+
+}

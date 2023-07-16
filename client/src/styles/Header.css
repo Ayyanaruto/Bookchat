@@ -1,13 +1,3 @@
-:root{
-    font-size: 16px;
-    font-family: 'Open Sans', sans-serif;
-    --text-primary:#b6b6b6;
-    --text-secondary:#ececec;
-    --bg-primary:#23232e;
-    --bg-secondary:#141418;
-}
-
-
 .navbar{
     width: 5rem;
     height:100vh;
@@ -106,11 +96,44 @@ transform: rotate(-540deg);
     }
 }
 /*Small Screen*/
-@media only screen and (max-width:600px){
-    .navbar{
-        height: 95vh;
-    }
-   
+@media only screen and (max-width: 600px) {
+  .navbar {
+    bottom: 0;
+    width: 100%;
+    height: 5rem;
+  }
+  .logo{
+    
+    margin-bottom: 0%;
+  }
 
+  .navbar:hover{
+    width: 100vw;
+  }
+  .navbar:hover .link-text{
+    position: absolute;
+   bottom: 100%;
+    margin: 1rem;
+    font-weight: bolder;
+    transition:all 600ms;
  
+}
+.navbar .link-text{
+    display: inline;
+    position: absolute;
+    bottom: 0%;
+    transition: all 600ms ease-out;
+    margin-left: 0.3rem;
+
+
+}
+.nav-link svg{
+    margin-bottom: 1rem;
+}
+  .navbar-nav {
+    flex-direction: row;
+  }
+  .nav-link {
+    justify-content: center;
+  }
 }

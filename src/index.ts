@@ -9,9 +9,11 @@ import cookieSession from "cookie-session";
 //Routes
 import authRoutes from "./routes/authRoutes";
 import userApi from "./routes/userApi";
+import adminApi from "./routes/Admin/adminApi";
 
 //Data Models
 import "./models/User";
+import "./models/Products";
 
 //Services
 import "./services/passport";
@@ -39,7 +41,10 @@ app.use(passport.session());
 //Routes Middleware
 app.use("/auth/google", authRoutes);
 app.use("/api", userApi);
+app.use("/api/admin", adminApi);
+
+
 
 app.listen(5000, () => {
-  console.log("Server on port 3000");
+  console.log("Server on port 5000");
 });
