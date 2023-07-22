@@ -1,5 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import AdminProducts from "../components/AdminProducts";
+import AdminProductsDashBoard from "../components/AdminProductsDashboard";
+import AdminUpdateProducts from "../components/AdminUpdateForm";
+import AdminDelete from "../components/AdminDelete";
 
 
 interface RouteConfig {
@@ -11,6 +14,17 @@ const routes: RouteConfig[] = [
   {
     path: "/admin",
     element:<AdminProducts />,
+  },{
+    path:"/admin/products",
+    element:<AdminProductsDashBoard/>
+  },
+  {
+    path:"/admin/products/update/:id",
+    element:<AdminUpdateProducts/>
+  },
+  {
+    path:"/admin/products/delete/:id",
+    element:<AdminDelete/>
   }
   
 ];

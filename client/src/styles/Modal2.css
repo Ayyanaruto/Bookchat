@@ -1,0 +1,17 @@
+.modal-content {
+  width: 25rem;
+  height: 15rem;
+}
+.modal-footer{
+   margin-top: 1rem;
+}
+.modal-footer button{
+    background-color: var(--text-secondary);
+    padding: 0.8rem 1rem;
+    margin: 1rem 2rem;
+    border: none;
+    text-decoration: none;
+    color: var(--bg-primary);
+    font-weight: 600;
+    border-radius: 1rem;
+}

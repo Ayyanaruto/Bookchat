@@ -4,8 +4,8 @@ import { requireLogin } from "../middlewares/requireLogin";
 
 const router = Router();
 
-router.get("/current_user",requireLogin,currentUser);
+router.get("/current_user",currentUser);
 
-router.get("/logout", logout)
+router.get("/logout", requireLogin, logout);
 
 export default router; 

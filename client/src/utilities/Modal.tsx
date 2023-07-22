@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 
 const loginElement: HTMLElement= document.getElementById("login") as HTMLElement;
-  console.log(window.location.href)
 const Modal:()=>JSX.Element=()=>{
     return ReactDom.createPortal(
       <div className="modal">

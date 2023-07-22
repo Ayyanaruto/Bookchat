@@ -7,13 +7,13 @@ function AdminHeader(){
     <nav className="navbar">
       <ul className="navbar-nav">
         <li className="logo">
-          <Link to="/" className="nav-link">
+          <Link to="/admin" className="nav-link">
             <Logo />
             <span className="link-text">Admin</span>
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="#" className="nav-link">
+          <Link to="/admin/products" className="nav-link">
             <CartIcon />
             <span className="link-text">Products</span>
           </Link>

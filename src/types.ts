@@ -10,7 +10,9 @@ export interface User{
 export interface Product extends mongoose.Document{
     name:string,
     price:number,
+    discount:number,
     description:string,
     image:string,
+    imageId:string,
     countInStock:number
 }

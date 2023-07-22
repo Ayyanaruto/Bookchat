@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
-import "./styles/App.css";
 import routes from "./utilities/route";
 import Protectedroutes from "./components/Admin/utilities/AdminRoutes";
 import AdminHeader from "./components/Admin/components/AdminHeader";
+
 
 
 const routesList: () => JSX.Element[] = () => {
@@ -16,7 +16,7 @@ const routesList: () => JSX.Element[] = () => {
 
 const App = (): JSX.Element => {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <div className="App">
         {window.location.href.includes("admin") ? <AdminHeader/> :
         <Header />}
