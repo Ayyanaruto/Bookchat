@@ -53,10 +53,11 @@ router.get(
 );
 router.patch("/products/:id", async (req, res, next) => {
   const { name, price, description, image, imageId, countInStock } = req.body;
+  console.log(req.body.image);
   try {
     const product: Product | null = await Products.findById(req.params.id);
     if (product) {
-      if (product.image !== image && product.imageId) {
+      if (product.imageId && product.imageId!==imageId) {
         console.log("In");
         const res = await cloudinary.uploader.destroy(
           product.imageId,
@@ -68,14 +69,14 @@ router.patch("/products/:id", async (req, res, next) => {
             }
           }
         );
+      }else{
+        console.log("Out");
       }
-      console.log("In" + res);
-
+       product.image = image;
+       product.imageId = imageId;
       product.name = name;
       product.price = price;
       product.description = description;
-      product.image = image;
-      product.imageId = imageId;
       product.countInStock = countInStock;
       const updatedProduct = await product.save();
       res.send(updatedProduct);
@@ -87,7 +88,7 @@ router.patch("/products/:id", async (req, res, next) => {
 router.delete("/products/:id", async (req, res, next) => {
   try {
     if (req.params.id) {
-      console.log(req.body.imageId);
+     if(req.body.imageId){
       await cloudinary.uploader.destroy(
         req.body.imageId,
         (err: Error, result: Object) => {
@@ -97,7 +98,7 @@ router.delete("/products/:id", async (req, res, next) => {
             console.log(result);
           }
         }
-      );
+      );}
       await Products.findByIdAndDelete<Product>(req.params.id);
 
       res.send("Product removed successfully");

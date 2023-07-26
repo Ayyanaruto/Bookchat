@@ -1,15 +1,18 @@
 import { combineReducers } from "redux";
 import { authReducer } from "./authReducers";
 import { productsReducer } from "./productsReducer";
-import { AuthState,ProductState } from "../actions/types";
+import { orderReducer } from "./orderReducers";
+import { AuthState,ProductState,OrderState } from "../actions/types";
 
 export interface StoreState{
     auth:AuthState
-    product:ProductState
+    product:ProductState,
+    order:OrderState
 }
 const rootReducer = combineReducers<StoreState>({
     auth:authReducer,
-    product:productsReducer
+    product:productsReducer,
+    order:orderReducer
 
 });
 export type RootState = ReturnType<typeof rootReducer>;

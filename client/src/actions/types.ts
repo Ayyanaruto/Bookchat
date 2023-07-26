@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export enum Actions{
     FETCH_SUCCESS = 'fetch_success',
     FETCH_ERROR = 'fetch_error',
@@ -9,6 +11,8 @@ export enum Actions{
     FETCH_PRODUCT='fetch_product',
     EDIT_PRODUCTS='edit_products',
     DELETE_PRODUCTS='delete_products',
+    CREATE_ORDER='create_order',
+    ORDER_ERROR='order_error'
 }
 
 export interface User{
@@ -82,6 +86,35 @@ export interface ProductState{
     isLoading: boolean;
     products: Product[];
 }
+//ORDERS
+export interface Order_details{
+    _id:string;
+    name: string;
+    email: string;
+    address: string;
+    city: string;
+    state: string;
+    zip: string;
+    phone: string;
+    quantity: number;
+    amount: number;
+    User: string;
+    product: string;
+}
+interface CreateOrderAction{
+    type: Actions.CREATE_ORDER;
+}
+interface OrderErrorAction{
+    type: Actions.ORDER_ERROR;
+    payload: string;
+}
+export interface OrderState{
+    error: string|null;
+    isLoading: boolean;
+    orders: Order_details[];
+}
+ export type OrderAction = CreateOrderAction|OrderErrorAction;
+
 
 export type ProductAction =
   | CreateProductAction

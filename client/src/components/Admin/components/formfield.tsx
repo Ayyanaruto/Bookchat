@@ -1,4 +1,4 @@
-import { type } from "os";
+
 
 interface field{
     name: string;

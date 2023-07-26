@@ -1,4 +1,7 @@
 import ProfilePage from "../components/ProfilePage";
+import HomePage from "../components/HomePage";
+import ProductPage from "../components/ProductPage";
+
 interface RouteConfig {
     path: string;
     element: JSX.Element;
@@ -11,21 +14,14 @@ interface RouteConfig {
 //     </div>
 //   );
 // }
-const ProductsPage = () => {
-  return (
-    <div>
-      <h1>Products Page</h1>
-    </div>
-  );
-}
+// const ProductsPage = () => {
+//   return (
+//     <div>
+//       <h1>Products Page</h1>
+//     </div>
+//   );
+// }
 
-const HomePage = () => {
-  return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
-  );
-}
 
 const TshirtPage = () => {
   return (
@@ -45,8 +41,8 @@ const routes:RouteConfig[]=[
   } 
   ,
   {
-    path: '/products',
-    element: <ProductsPage />
+    path: '/products/:id',
+    element: <ProductPage />
   }
   ,
   {

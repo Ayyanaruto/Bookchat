@@ -17,7 +17,7 @@ const renderLogin: (
   auth: AuthState,
   children: React.ReactElement
 ) => JSX.Element = (auth, children) => {
-  if (auth.ading) {
+  if (auth.isLoading) {
     return (
       <div>
         <Loading />

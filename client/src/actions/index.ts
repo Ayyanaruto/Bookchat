@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Dispatch } from "redux";
-import { Actions, AuthAction, User, ProductAction, Product } from "./types";
+import { Actions, AuthAction, User, ProductAction, Product,OrderAction } from "./types";
 import history from "../history";
 
 export const fetch_user = () => async (dispatch: Dispatch<AuthAction>) => {
@@ -90,6 +90,16 @@ export const edit_product =
     } catch (e) {
       if (e instanceof Error) {
         dispatch({ type: Actions.PRODUCTS_ERROR, payload: e.message });
+      }
+    }
+  }
+  export const create_order = (order:any) => async (dispatch: Dispatch<OrderAction>) => {
+    try {
+      const { data } = await axios.post("/api/payment/orders", order);
+      dispatch({ type: Actions.CREATE_ORDER, payload: data });
+    } catch (e) {
+      if (e instanceof Error) {
+        dispatch({ type: Actions.ORDER_ERROR, payload: e.message });
       }
     }
   }

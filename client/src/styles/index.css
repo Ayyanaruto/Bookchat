@@ -14,6 +14,7 @@ body{
     background-color: var(--bg-secondary);
  color: var(--text-secondary);
     overflow-x: hidden;
+    overflow-y: scroll;
 
 
 }

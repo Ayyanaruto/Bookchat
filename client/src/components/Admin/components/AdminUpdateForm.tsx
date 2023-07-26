@@ -21,6 +21,7 @@ interface values {
   discount: number;
   image: string;
   countInStock: number;
+  imageId:string;
 }
 interface AdminUpdateProductsProps {
   fetch_product: (id: string) => void;
@@ -36,6 +37,8 @@ const AdminUpdateProducts = (props: AdminUpdateProductsProps) => {
   }, []);
 
   const [image, setImage] = React.useState<string>("");
+  const[imageId,setImageId]=React.useState<string>("")
+
 
   const renderFields = () => {
     if (!fields) {
@@ -54,9 +57,10 @@ const AdminUpdateProducts = (props: AdminUpdateProductsProps) => {
       );
     });
   };
-  const handleImageUpload = (image: string) => {
+  const handleImageUpload = (image: string,imageId:string) => {
     if (image) {
       setImage(image);
+      setImageId(imageId)
     } else {
       return " Not uploaded";
     }
@@ -71,7 +75,15 @@ const AdminUpdateProducts = (props: AdminUpdateProductsProps) => {
       <AdminForm
         header="Updates Products"
         onSubmit={(values: values) => {
+          if(!image){
+            values.image=product.image
+            values.imageId=product.imageId
+          }
+          else{
           values.image = image;
+          values.imageId=imageId
+          }
+
           props.edit_product(values, id as string);
         }}
         initialValues={{
