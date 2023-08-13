@@ -1,0 +1,121 @@
+.order-page{
+ display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+ margin-top: 1rem;
+ margin-left: 8rem;
+
+}
+.order-card{
+
+    border-radius: 5px;
+    background-color: var(--bg-primary);
+   width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.order-card-header{
+   text-align: center;
+   background-color: #252539;
+   width: 100%;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+border-bottom: 1px solid var(--text-primary);
+font-size: larger;}
+.order-details{
+    display: flex;
+    flex-direction: row;
+   align-items: center;   
+   background-color: #252539;
+   margin: 1rem;
+   box-shadow:   0 0 10px 0 rgba(0,0,0,0.2);
+
+}
+.order-card-body h6{
+    margin: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+.order-details img{
+    width: 100px;
+    height: 100px;
+
+}
+.order-details-price{
+     font-size: 0.7rem;
+     margin-left: 1rem;
+    }
+.order-details-quantity{
+     font-size: 0.7rem;
+       margin-left: 1rem;
+       margin-right: 1rem;
+}
+.order-details-name{
+    font-size: 1rem;
+      margin-left: 1rem;
+      text-transform: uppercase;
+      font-weight: bolder;
+}
+
+.order-card-header-logo{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 1rem;
+
+}
+.order-receipt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    background-color: #252539;
+    box-shadow:   0 0 10px 0 rgba(0,0,0,0.2);
+    padding: 1rem;
+}
+.order-receipt-header{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+.order-receipt-body-items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--text-primary);
+  
+}
+
+.order-receipt-body-items-name{
+    margin: 1rem;
+
+    font-size: 1rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+.total{
+   display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  
+    margin: 1rem;
+
+
+}
+
+@media screen and (max-width: 768px){
+    .order-page{
+        margin-left: 0;
+        margin: 0.5rem;
+    }
+}
+    

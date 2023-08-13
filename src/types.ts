@@ -16,3 +16,20 @@ export interface Product extends mongoose.Document{
     imageId:string,
     countInStock:number
 }
+//Orders
+export interface Order extends mongoose.Document{
+  orderId:string,
+  paymentId:string,
+  razorpayMethod:string,
+  razorpaysignature:string,
+  name:string,
+  email:string,
+  address:string,
+  phone:string,
+  quantity:number,
+  amount:number,
+  user:Types.ObjectId,
+  product:Types.ObjectId[],
+  status:string,
+  date:Date
+}

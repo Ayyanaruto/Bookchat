@@ -19,7 +19,7 @@ function AdminHeader(){
           </Link>
         </li>
          <li className="nav-item">
-          <Link to="#" className="nav-link">
+          <Link to="/admin/customer/orders" className="nav-link">
             <RocketIcon />
             <span className="link-text">Orders</span>
           </Link>

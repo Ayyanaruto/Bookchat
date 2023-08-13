@@ -15,9 +15,9 @@ const Header:()=>JSX.Element=() => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="#" className="nav-link">
+          <Link to="/orders" className="nav-link">
             <CartIcon />
-            <span className="link-text">Your Cart</span>
+            <span className="link-text">Your Orders</span>
           </Link>
         </li>
         {/* <li className="nav-item">

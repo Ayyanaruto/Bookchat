@@ -3,7 +3,8 @@ import AdminProducts from "../components/AdminProducts";
 import AdminProductsDashBoard from "../components/AdminProductsDashboard";
 import AdminUpdateProducts from "../components/AdminUpdateForm";
 import AdminDelete from "../components/AdminDelete";
-
+import AdminCustOrder from "../components/AdminCustOrder";
+import AdminCustOrderDetails from "../components/AdminCustOrderDetails";
 
 interface RouteConfig {
   path: string;
@@ -25,6 +26,13 @@ const routes: RouteConfig[] = [
   {
     path:"/admin/products/delete/:id",
     element:<AdminDelete/>
+  },{
+    path:"/admin/customer/orders",
+    element:<AdminCustOrder/>
+  },
+  {
+    path:"/admin/customer/orders/:id",
+    element:<AdminCustOrderDetails/>
   }
   
 ];

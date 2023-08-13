@@ -6,5 +6,5 @@ export const validateEmail = (email: string) => {
     if(!test){
         return "Invalid Email";
     }
-    return null;
+   
 };

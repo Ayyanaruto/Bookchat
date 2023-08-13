@@ -12,7 +12,7 @@ const loginElement: HTMLElement= document.getElementById("login") as HTMLElement
 const Modal:()=>JSX.Element=()=>{
     return ReactDom.createPortal(
       <div className="modal">
-        <div className="modal-content">
+        <div className="modal-content-1">
           <div className="modal-header">
             <h2 className="modal-title">Login ᕙ(▀̿̿_̿̿▀̿ ̿) ᕗ</h2>
           </div>

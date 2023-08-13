@@ -1,21 +1,30 @@
 import mongoose,{Schema, Types} from "mongoose";
+import {Order,} from "../types";
 
 const OrderDetailsSchema = new Schema({
-    name: String,
-    email: String,
-    address: String,
-    city: String,
-    state: String,
-    zip: String,
-    country: String,
-    phone: String,
-    quantity: Number,
-    amount: Number,
-    User: {type: Types.ObjectId, ref: "User"},
-    product: [{type: Types.ObjectId, ref: "Product"}],
+  orderId: String,
+  paymentId: String,
+  razorpayMethod: String,
+  razorpaysignature: String,
+  name: String,
+  email: String,
+  address: String,
+  phone: String,
+  quantity: Number,
+  amount: Number,
+  user: { type: Types.ObjectId, ref: "User" },
+  product: [{ type: Types.ObjectId, ref: "Product" }],
+  status: {
+    type: String,
+    default: "Pending",
+    enum: ["Pending", "Processing", "Shipped", "Delivered", "Cancelled"],
+  },
+  date: {
+    type: Date,
+    default: new Date().toJSON().slice(0, 10).split("-").reverse().join("/"),
+  },
+});
 
-})
+const Order = mongoose.model<Order>("Order", OrderDetailsSchema);
 
-const OrderDetails = mongoose.model("OrderDetails", OrderDetailsSchema);
-
-export default OrderDetails;
+export default Order;

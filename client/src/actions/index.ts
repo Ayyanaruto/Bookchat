@@ -94,9 +94,48 @@ export const edit_product =
     }
   }
   export const create_order = (order:any) => async (dispatch: Dispatch<OrderAction>) => {
+    dispatch({ type: Actions.ORDER_LOADING, payload: true });
     try {
       const { data } = await axios.post("/api/payment/orders", order);
       dispatch({ type: Actions.CREATE_ORDER, payload: data });
+    } catch (e) {
+      if (e instanceof Error) {
+        dispatch({ type: Actions.ORDER_ERROR, payload: e.message });
+      }
+    }
+  }
+
+  export const fetch_orders = () => async (dispatch: Dispatch<OrderAction>) => {
+    dispatch({ type: Actions.ORDER_LOADING, payload: true });
+    try {
+      const { data } = await axios.get("/api/payment/orders");
+      dispatch({ type: Actions.FETCH_ORDERS, payload: data });
+    } catch (e) {
+      if (e instanceof Error) {
+        dispatch({ type: Actions.ORDER_ERROR, payload: e.message });
+      }
+    }
+  }
+  export const fetch_order = (id:string) => async (dispatch: Dispatch<OrderAction>) => {
+    dispatch({ type: Actions.ORDER_LOADING, payload: true });
+    try {
+      const { data } = await axios.get(`/api/admin/orders/${id}`);
+      dispatch({ type: Actions.FETCH_ORDER, payload: data });
+    } catch (e) {
+      if (e instanceof Error) {
+        dispatch({ type: Actions.ORDER_ERROR, payload: e.message });
+      }
+    }
+  }
+  export const update_order = (id:string,status:string) => async (dispatch: Dispatch<OrderAction>) => {
+    dispatch({ type: Actions.ORDER_LOADING, payload: true });
+    try {
+      console.log(status);
+      const { data } = await axios.patch(`/api/admin/orders/${id}`,{
+        status
+      });
+      console.log(data);
+      dispatch({ type: Actions.UPDATE_ORDER, payload: data });
     } catch (e) {
       if (e instanceof Error) {
         dispatch({ type: Actions.ORDER_ERROR, payload: e.message });

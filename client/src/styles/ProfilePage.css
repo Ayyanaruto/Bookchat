@@ -64,3 +64,15 @@
     font-weight: 500;
     margin: 1rem 0;
 }
+@media screen and (max-width: 768px){
+    .profile{
+        padding: 0;
+        margin: 1rem;
+    }
+    .profile-data{
+        width: 100%;
+    }
+    .manage-item{
+        width: 100%;
+    }
+}

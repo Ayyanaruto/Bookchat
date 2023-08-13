@@ -24,6 +24,7 @@ import "./services/passport";
 //App Config
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect("mongodb://0.0.0.0:27017/RetroRevamp")
 .then(() => console.log("DB is connected"))

@@ -8,7 +8,7 @@
     justify-content: center;
 
 }
-.modal-content{
+.modal-content-1{
     width: 25rem;
     height: 25rem;
     background-color: var(--bg-primary);
@@ -57,7 +57,7 @@
 
 @media only screen and (max-width:600px){
 
-   .modal-content{
+   .modal-content-1{
     width: 15rem;
     height: 15rem;
 

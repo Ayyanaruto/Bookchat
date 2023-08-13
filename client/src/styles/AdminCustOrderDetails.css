@@ -1,0 +1,112 @@
+.order_grid{
+ display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   padding: 30px 0;
+  
+}
+.order_grid_item_title{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0;
+    text-align: center;
+    display: block;
+}
+.order_grid_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--text-secondary);
+    padding: 10px;
+    border-radius: 10px;
+}
+.order_grid_item img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.order_grid_item_title{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0;
+    text-align: center;
+    display: block;
+}
+.order_grid_item_value{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0;
+    text-align: center;
+    display: block;
+}
+.order_grid_item_price{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0;
+    text-align: center;
+    display: block;
+}
+.customer_data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--text-secondary);
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 8rem;
+}
+.customer_data_title{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0;
+    text-align: center;
+    display: block;
+}
+.customer_data_name{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0;
+    text-align: center;
+    display: block;
+}
+.customer_data_email{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0;
+    text-align: center;
+    display: block;
+}
+.customer_data_address{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0;
+    text-align: center;
+    display: block;
+}
+.customer_data_phone{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0;
+    text-align: center;
+    display: block;
+}
+@media screen and (max-width: 768px) {
+    .order_grid{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
+        margin-bottom: 5rem;
+    }
+    .order_grid_item{
+        margin: 10px 0;
+    }
+    .customer_data{
+        margin: 10px 0;
+    }
+    
+}

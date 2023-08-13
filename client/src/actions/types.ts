@@ -12,7 +12,12 @@ export enum Actions{
     EDIT_PRODUCTS='edit_products',
     DELETE_PRODUCTS='delete_products',
     CREATE_ORDER='create_order',
-    ORDER_ERROR='order_error'
+    ORDER_ERROR='order_error',
+    ORDER_LOADING='order_loading',
+    FETCH_ORDERS='fetch_orders',
+    FETCH_ORDER='fetch_order',
+    UPDATE_ORDER='update_order',
+
 }
 
 export interface User{
@@ -88,32 +93,65 @@ export interface ProductState{
 }
 //ORDERS
 export interface Order_details{
-    _id:string;
-    name: string;
-    email: string;
-    address: string;
-    city: string;
-    state: string;
-    zip: string;
-    phone: string;
-    quantity: number;
+    id:string;
     amount: number;
-    User: string;
-    product: string;
+    currency: string;
+    user:string;
 }
+export interface Order{
+    _id: string;
+    orderId:string;
+    paymentId:string;
+    razorpayMethod:string;
+    razorpaysignature:string;
+    name:string;
+    email:string;
+    address:string;
+    phone:string;
+    quantity:number;
+    amount:number;
+    status:string;
+    product:Product[];
+    user:string;
+    date:Date;
+}
+
 interface CreateOrderAction{
     type: Actions.CREATE_ORDER;
+    payload: {
+        id: string;
+        currency: string;
+        amount: number;
+        user: string;
+    };
 }
 interface OrderErrorAction{
     type: Actions.ORDER_ERROR;
     payload: string;
 }
+interface OrderLoadingAction{
+    type: Actions.ORDER_LOADING;
+    payload: boolean;
+}
+interface FetchOrdersAction{
+    type: Actions.FETCH_ORDERS;
+    payload: Order[];
+}
+interface FetchOrderAction{
+    type: Actions.FETCH_ORDER;
+    payload: Order; }
+
+    interface UpdateOrderAction{
+        type: Actions.UPDATE_ORDER;
+        payload: string;
+    }
 export interface OrderState{
     error: string|null;
     isLoading: boolean;
-    orders: Order_details[];
+    orders: Order_details|Order[]|Order;
 }
- export type OrderAction = CreateOrderAction|OrderErrorAction;
+
+ export type OrderAction = CreateOrderAction|OrderErrorAction|OrderLoadingAction|FetchOrdersAction|FetchOrderAction|UpdateOrderAction;
 
 
 export type ProductAction =

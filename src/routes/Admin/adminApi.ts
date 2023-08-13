@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response, Router } from "express";
 import Products from "../../models/Products";
-import { Product } from "../../types";
+import Checkout from "../../models/Checkout";
+import { Product, Order } from "../../types";
 import cloudinary from "../../services/cloudinary";
 
 const router = Router();
@@ -57,7 +58,7 @@ router.patch("/products/:id", async (req, res, next) => {
   try {
     const product: Product | null = await Products.findById(req.params.id);
     if (product) {
-      if (product.imageId && product.imageId!==imageId) {
+      if (product.imageId && product.imageId !== imageId) {
         console.log("In");
         const res = await cloudinary.uploader.destroy(
           product.imageId,
@@ -69,11 +70,11 @@ router.patch("/products/:id", async (req, res, next) => {
             }
           }
         );
-      }else{
+      } else {
         console.log("Out");
       }
-       product.image = image;
-       product.imageId = imageId;
+      product.image = image;
+      product.imageId = imageId;
       product.name = name;
       product.price = price;
       product.description = description;
@@ -88,17 +89,18 @@ router.patch("/products/:id", async (req, res, next) => {
 router.delete("/products/:id", async (req, res, next) => {
   try {
     if (req.params.id) {
-     if(req.body.imageId){
-      await cloudinary.uploader.destroy(
-        req.body.imageId,
-        (err: Error, result: Object) => {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log(result);
+      if (req.body.imageId) {
+        await cloudinary.uploader.destroy(
+          req.body.imageId,
+          (err: Error, result: Object) => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log(result);
+            }
           }
-        }
-      );}
+        );
+      }
       await Products.findByIdAndDelete<Product>(req.params.id);
 
       res.send("Product removed successfully");
@@ -108,3 +110,47 @@ router.delete("/products/:id", async (req, res, next) => {
   }
 });
 export default router;
+
+router.get("/orders", async (req, res, next) => {
+  try {
+    const orders = await Checkout.find<Order>({});
+    res.send(orders);
+  } catch (err) {
+    res.send(err);
+  }
+});
+router.get("/orders/:id", async (req, res, next) => {
+  try {
+    const order = await Checkout.findById<Order>(req.params.id).populate(
+      "product"
+    );
+    res.send(order);
+  } catch (err) {
+    res.send(err);
+  }
+});
+router.patch("/orders/:id", async (req, res, next) => {
+  const { status } = req.body;
+  console.log(req.body);
+  try {
+    const order: Order| null= await Checkout.findById(req.params.id);
+    if (order) {
+      order.status = status;
+      const updatedOrder = await order.save();
+      res.send(updatedOrder);
+    
+    }
+  } catch (err) {
+    res.send(err);
+  }
+});
+router.delete("/orders/:id", async (req, res, next) => {
+  try {
+    if (req.params.id) {
+      await Checkout.findByIdAndDelete<Order>(req.params.id);
+      res.send("Order removed successfully");
+    }
+  } catch (err) {
+    res.send("Succesfully Deleted");
+  }
+});

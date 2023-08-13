@@ -1,6 +1,8 @@
 import ProfilePage from "../components/ProfilePage";
 import HomePage from "../components/HomePage";
 import ProductPage from "../components/ProductPage";
+import OrderSuccess from "../components/OrderSuccess";
+import OrderPage from "../components/OrderPage";
 
 interface RouteConfig {
     path: string;
@@ -49,6 +51,13 @@ const routes:RouteConfig[]=[
     path: '/tshirt',
     element: <TshirtPage />
   },
+  {
+    path: '/success/:id',
+    element:<OrderSuccess />
+  },{
+    path: '/orders',
+    element:<OrderPage/>
+  }
 
 ]
     export default routes;
