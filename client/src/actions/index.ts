@@ -1,7 +1,9 @@
 import axios from "axios";
 import { Dispatch } from "redux";
-import { Actions, AuthAction, User, ProductAction, Product,OrderAction } from "./types";
+import { Actions, AuthAction, User, ProductAction, Product,OrderAction,AdminAction } from "./types";
 import history from "../history";
+import { toast } from "react-hot-toast";
+import { set } from "lodash";
 
 export const fetch_user = () => async (dispatch: Dispatch<AuthAction>) => {
   dispatch({ type: Actions.FETCH_LOADING, payload: true });
@@ -142,3 +144,65 @@ export const edit_product =
       }
     }
   }
+  export const delete_order = (id:string) => async (dispatch: Dispatch<OrderAction>) => {
+    dispatch({ type: Actions.ORDER_LOADING, payload: true });
+    try {
+      const { data } = await axios.delete(`/api/admin/orders/${id}`);
+      dispatch({ type: Actions.DELETE_ORDER, payload: data });
+    } catch (e) {
+      if (e instanceof Error) {
+        dispatch({ type: Actions.ORDER_ERROR, payload: e.message });
+      }
+    }
+  }
+
+export const login_admin = (formValues:any) => async (dispatch: Dispatch<AdminAction>) => {
+  dispatch({ type: Actions.ADMIN_LOADING, payload: true });
+  try {
+    const { data } = await axios.post("/api/admin/login", formValues);
+    dispatch({ type: Actions.LOGIN_ADMIN, payload: data });
+
+    history.push("/admin/products");
+    history.go(0);
+  } catch (e) {
+    if (e instanceof Error) {
+      dispatch({ type: Actions.ADMIN_ERROR, payload: e.message });
+    }
+  }
+}
+export const logout_admin = () => async (dispatch: Dispatch<AdminAction>) => {
+  dispatch({ type: Actions.ADMIN_LOADING, payload: true });
+  try {
+    const { data } = await axios.post("/api/admin/logout");
+    dispatch({ type: Actions.LOGOUT_ADMIN, payload: data });
+    history.push("/admin/login");  
+  } catch (e) {
+    if (e instanceof Error) {
+      dispatch({ type: Actions.ADMIN_ERROR, payload: e.message });
+    }
+  }
+}
+
+export const fetch_admin = () => async (dispatch: Dispatch<AdminAction>) => {
+  dispatch({ type: Actions.ADMIN_LOADING, payload: true });
+  try {
+    const { data } = await axios.get("/api/admin/current_admin");
+    dispatch({ type: Actions.FETCH_ADMIN, payload: data });
+  } catch (e) {
+    if (e instanceof Error) {
+      dispatch({ type: Actions.ADMIN_ERROR, payload: e.message });
+    }
+  }
+}
+export const register_admin = (formValues:any) => async (dispatch: Dispatch<AdminAction>) => {
+  dispatch({ type: Actions.ADMIN_LOADING, payload: true });
+  try {
+    const { data } = await axios.post("/api/admin/register", formValues);
+    dispatch({type: Actions.CREATE_ADMIN, payload: data});
+  }catch (e) {
+    if (e instanceof Error) {
+      dispatch({ type: Actions.ADMIN_ERROR, payload: e.message });
+    }
+  }
+};
+

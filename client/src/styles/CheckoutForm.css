@@ -84,14 +84,14 @@
   padding: 0.5rem;
   border: 1px solid var(--text-primary);
   border-radius: 0.5rem;
-  background-color: var(--text-primary);
+  background-color: var(--bg-primary);
   color: var(--text-secondary);
   font-weight: bolder;
   cursor: pointer;
 }
 .checkout-form button:hover{
-  background-color: var(--text-secondary);
-  color: var(--text-primary);
+  transition:transform 1s;
+  transform:scale(1.1);
 }
 .checkout-form button:focus{
   outline: none;

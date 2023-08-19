@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { toast } from "react-hot-toast";
 
 import { fetch_user } from "../actions";
 import { AuthState } from "../actions/types";
@@ -10,7 +11,7 @@ import Modal from "./Modal";
 interface Props {
   fetch_user(): any;
   auth: AuthState;
-  children: React.ReactElement;
+  children: any
 }
 
 const renderLogin: (
@@ -24,11 +25,24 @@ const renderLogin: (
       </div>
     );
   } else if (auth.error) {
-    return <div>{auth.error}</div>;
+    toast.error(auth.error);
+    return (
+      <div>
+        <Modal />
+      </div>
+    );
   } else if (auth.user) {
     return React.cloneElement(children, { user: auth.user });
   } else {
+toast.error(auth.error, {
+  id: "login-error",
+  duration: 4000,
+      });
     return (
+      toast.error("Please login to continue", {
+        id: "login-error",
+        duration: 4000,
+      }),
       <div>
         <Modal />
       </div>

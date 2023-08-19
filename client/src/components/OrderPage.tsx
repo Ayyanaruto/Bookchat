@@ -46,7 +46,7 @@ const OrderPage: (props: OrderPageProps) => JSX.Element = (props) => {
     } else if (props.orders.isLoading) {
       return <Loading />;
     } else if (props.orders.error) {
-      return <div>Error</div>;
+     
     } else if (props.orders.orders.length > 0) {
       return props.orders.orders.map((order: any,i:any) => {
         const active=activeIndex(order)
@@ -145,7 +145,11 @@ const OrderPage: (props: OrderPageProps) => JSX.Element = (props) => {
     }
   };
 
-  return <div className="order-page">{reenderOrders()}</div>;
+  return (
+    <div className="order-page">
+      <LoginStatus>{reenderOrders()}</LoginStatus>
+    </div>
+  );
 };
 const mapStateToProps = (state: RootState) => {
   return {

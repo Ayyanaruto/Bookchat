@@ -1,10 +1,74 @@
 import { NextFunction, Request, Response, Router } from "express";
 import Products from "../../models/Products";
 import Checkout from "../../models/Checkout";
-import { Product, Order } from "../../types";
+import Admins from "../../models/Admin";
+import { Product, Order, Admin } from "../../types";
 import cloudinary from "../../services/cloudinary";
+import bcrypt from "bcrypt";
 
 const router = Router();
+router.post(
+  "/register",
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { email, password, roles } = req.body;
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    Admins.findOne({ email: email }).then(async (admin) => {
+      if (admin) {
+        res.send("Admin already exists");
+      } else {
+        const admin: Admin = new Admins({
+          email,
+          password: hashedPassword,
+          roles,
+        });
+        try {
+          await admin.save();
+          res.send("Admin added successfully");
+        } catch (err) {
+          res.send(err);
+        }
+      }
+    });
+  }
+);
+router.post(
+  "/login",
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { email, password } = req.body;
+    try {
+      const admin = await Admins.findOne({ email: email });
+      if (admin) {
+        const isMatch = await admin.isValidPassword(password);
+        if (isMatch) {
+          req.session!.admin = {
+            email: admin.email,
+            roles: admin.roles,
+          };
+
+          res.send("Logged in successfully");
+        } else {
+          res.send("Invalid credentials");
+        }
+      } else {
+        res.send("Admin doesn't exist");
+      }
+    } catch (err) {
+      res.send("Something went wrong" + err);
+    }
+  }
+);
+router.get("/current_admin", (req: Request, res: Response) => {
+if(req.session!.admin){
+res.send(req.session!.admin);}
+  else{
+    res.send(null);
+  }
+})
+router.get("/logout", (req: Request, res: Response) => {
+  req.session = null;
+  res.send("Logged out successfully");
+});
 
 router.post(
   "/products",
@@ -133,12 +197,11 @@ router.patch("/orders/:id", async (req, res, next) => {
   const { status } = req.body;
   console.log(req.body);
   try {
-    const order: Order| null= await Checkout.findById(req.params.id);
+    const order: Order | null = await Checkout.findById(req.params.id);
     if (order) {
       order.status = status;
       const updatedOrder = await order.save();
       res.send(updatedOrder);
-    
     }
   } catch (err) {
     res.send(err);

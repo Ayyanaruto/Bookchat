@@ -1,5 +1,4 @@
 import { Actions,AuthAction} from "../actions/types"
-import {User} from "../actions/types"
 import { AuthState } from "../actions/types"
 const initialState:AuthState={
     user:null,

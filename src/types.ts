@@ -33,3 +33,10 @@ export interface Order extends mongoose.Document{
   status:string,
   date:Date
 }
+
+export interface Admin extends mongoose.Document {
+  email: string,
+  password: string,
+  roles: string,
+  isValidPassword(password: string): Promise<boolean>;
+}
