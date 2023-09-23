@@ -8,7 +8,7 @@
     "client": "npm run start --prefix client",
     "dev": "concurrently \"node index.js\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --legacy-peer-deps --prefix client && npm run build --prefix client",
-    "postinstall": "tsc"
+    "postinstall": "tsc && mv -i -v client dist/ && rm -v -rf src"
   },
   "author": "",
   "license": "ISC",
