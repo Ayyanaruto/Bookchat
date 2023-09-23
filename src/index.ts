@@ -46,7 +46,19 @@ export const razorpayInstance = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID as string,
   key_secret: process.env.RAZORPAY_KEY_SECRET as string,
 });
+if (process.env.NODE_ENV === "production") {
+  //Express will serve up production assets
+  //like our main.js file or main.css file
 
+  app.use(express.static("client/build"));
+
+  //Express will serve up the index.html file
+  //if it doesn;t recognize the route
+  const path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 //Routes Middleware
 app.use("/auth/google", authRoutes);
 app.use("/api", userApi);
