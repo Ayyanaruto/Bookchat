@@ -1,5 +1,5 @@
 import { Router, Request, Response, response } from "express";
-import { requireLogin } from "../middlewares/requireLogin";
+import { requireAdmin, requireLogin } from "../middlewares/requireLogin";
 import { razorpayInstance } from "..";
 import OrderDetails from "../models/Checkout";
 import crypto from "crypto";
@@ -68,10 +68,10 @@ router.post("/verification",async (req: Request, res: Response) => {
     }
 });
 
-router.get("/orders", requireLogin, async (req: Request, res: Response) => {
-  const User: User = req.user as User;
+router.get("/orders",async (req: Request, res: Response) => {
+  
   try {
-    const orders = await OrderDetails.find({ user: User._id }).populate("product");
+    const orders = await OrderDetails.find({ }).populate("product");
     res.status(200).json(orders);
   } catch (e) {
     console.log(e);

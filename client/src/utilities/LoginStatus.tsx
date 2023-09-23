@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { toast } from "react-hot-toast";
 
 import { fetch_user } from "../actions";
 import { AuthState } from "../actions/types";
 import { RootState } from "../reducers";
 import Loading from "./Loading";
 import Modal from "./Modal";
+import { toast } from "react-hot-toast";
 
 interface Props {
   fetch_user(): any;
@@ -25,24 +25,25 @@ const renderLogin: (
       </div>
     );
   } else if (auth.error) {
-    toast.error(auth.error);
+   
     return (
       <div>
         <Modal />
       </div>
     );
   } else if (auth.user) {
+    if(window.location.pathname==="/profile"){
     return React.cloneElement(children, { user: auth.user });
+    }else{
+      return children
+    }
   } else {
-toast.error(auth.error, {
-  id: "login-error",
-  duration: 4000,
-      });
+toast.error("Please login to continue",{
+  id:"login-toast"
+  
+})
     return (
-      toast.error("Please login to continue", {
-        id: "login-error",
-        duration: 4000,
-      }),
+      
       <div>
         <Modal />
       </div>

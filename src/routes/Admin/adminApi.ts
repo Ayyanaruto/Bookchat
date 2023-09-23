@@ -5,6 +5,7 @@ import Admins from "../../models/Admin";
 import { Product, Order, Admin } from "../../types";
 import cloudinary from "../../services/cloudinary";
 import bcrypt from "bcrypt";
+import { requireAdmin } from "../../middlewares/requireLogin";
 
 const router = Router();
 router.post(
@@ -58,20 +59,20 @@ router.post(
     }
   }
 );
-router.get("/current_admin", (req: Request, res: Response) => {
+router.get("/current_admin",requireAdmin, (req: Request, res: Response) => {
 if(req.session!.admin){
 res.send(req.session!.admin);}
   else{
     res.send(null);
   }
 })
-router.get("/logout", (req: Request, res: Response) => {
+router.get("/logout",requireAdmin, (req: Request, res: Response) => {
   req.session = null;
   res.send("Logged out successfully");
 });
 
 router.post(
-  "/products",
+  "/products",requireAdmin,
   async (req: Request, res: Response, next: NextFunction) => {
     const { name, price, description, image, imageId, countInStock, discount } =
       req.body;
@@ -93,7 +94,7 @@ router.post(
   }
 );
 router.get(
-  "/products",
+  "/products",requireAdmin,
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const products: Product[] = await Products.find({});
@@ -104,7 +105,7 @@ router.get(
   }
 );
 router.get(
-  "/products/:id",
+  "/products/:id",requireAdmin,
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const product = await Products.findById(req.params.id);
@@ -116,7 +117,7 @@ router.get(
     }
   }
 );
-router.patch("/products/:id", async (req, res, next) => {
+router.patch("/products/:id", requireAdmin,async (req, res, next) => {
   const { name, price, description, image, imageId, countInStock } = req.body;
   console.log(req.body.image);
   try {
@@ -150,7 +151,7 @@ router.patch("/products/:id", async (req, res, next) => {
     res.send(err);
   }
 });
-router.delete("/products/:id", async (req, res, next) => {
+router.delete("/products/:id",requireAdmin, async (req, res, next) => {
   try {
     if (req.params.id) {
       if (req.body.imageId) {
@@ -175,9 +176,10 @@ router.delete("/products/:id", async (req, res, next) => {
 });
 export default router;
 
-router.get("/orders", async (req, res, next) => {
+router.get("/orders",requireAdmin, async (req, res, next) => {
   try {
     const orders = await Checkout.find<Order>({});
+    console.log(orders);
     res.send(orders);
   } catch (err) {
     res.send(err);
@@ -193,7 +195,7 @@ router.get("/orders/:id", async (req, res, next) => {
     res.send(err);
   }
 });
-router.patch("/orders/:id", async (req, res, next) => {
+router.patch("/orders/:id",requireAdmin, async (req, res, next) => {
   const { status } = req.body;
   console.log(req.body);
   try {

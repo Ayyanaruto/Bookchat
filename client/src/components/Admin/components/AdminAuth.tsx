@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { useNavigate } from "react-router";
+import { Navigate } from "react-router";
 import toast from "react-hot-toast";
 
 import AdminLogin from "./AdminLogin";
@@ -20,33 +20,40 @@ interface AdminAuthState {
   //     message:string
   // },
   admin: any;
-  children?: React.ReactElement;
+  children: Array<JSX.Element>|JSX.Element;
 }
 const AdminAuth: (props: AdminAuthState) => JSX.Element = (props) => {
-    console.log(props)
+
   useEffect(() => {
     props.fetch_admin();
   }, []);
-  const navigate = useNavigate();
-  const renderAdmin: () => JSX.Element = () => {
+  console.log(props.children);
+
+  const renderAdmin: () => JSX.Element|JSX.Element[] = () => {
     if (props.admin.isLoading) {
       return <Loading />;
     } else if (props.admin.error) {
-      toast.error(props.admin.error);
-      return <AdminLogin />;
+      toast.error(props.admin.error,{
+          
+          id:"admin-error",
+          });
+      return <AdminLogin/>;
     } else if (props.admin.admin) {
       if(props.admin.admin.roles==="ADMIN"){
-      return props.children!;}else{
+          return props.children;}
+    else{
           toast.error("You are not authorized to view this page",{
               id:"admin-error",
           })
-          return <AdminLogin />;
+          return (
+             <AdminLogin/>
+          );
       }
     } else {
       toast.error("Please login to continue",{
           id:"login-error",
       });
-      return <AdminLogin />;
+      return  <AdminLogin/>;;
     }
   }
   return <div>{renderAdmin()}</div>;

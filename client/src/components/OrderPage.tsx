@@ -151,10 +151,13 @@ const OrderPage: (props: OrderPageProps) => JSX.Element = (props) => {
     </div>
   );
 };
+
+
 const mapStateToProps = (state: RootState) => {
   return {
     orders: state.order,
   };
 };
+
 
 export default connect(mapStateToProps, { fetch_orders })(OrderPage);

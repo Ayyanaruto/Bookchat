@@ -1,9 +1,10 @@
 .navbar{
     width: 5rem;
-    height:100vh;
+    height:95vh;
     position: fixed;
     background-color: var(--bg-primary);
     transition: width 600ms ease;
+    z-index: 1000;
 }
 .navbar-nav{
     list-style: none;

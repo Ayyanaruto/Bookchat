@@ -10,39 +10,65 @@ import AdminLogin from "../components/AdminLogin";
 
 interface RouteConfig {
   path: string;
-  element: JSX.Element;
+  element: any;
 }
 
 const routes: RouteConfig[] = [
   {
     path: "/admin",
-    element: <AdminProducts />,
+    element: (
+      <AdminAuth>
+        <AdminProducts />
+      </AdminAuth>
+    ),
   },
   {
     path: "/admin/products",
-    element: <AdminProductsDashBoard />,
+    element: (
+      <AdminAuth>
+        <AdminProductsDashBoard />
+      </AdminAuth>
+    ),
   },
   {
     path: "/admin/products/update/:id",
-    element: <AdminUpdateProducts />,
+    element: (
+      <AdminAuth>
+        <AdminUpdateProducts />
+      </AdminAuth>
+    ),
   },
   {
     path: "/admin/products/delete/:id",
-    element: <AdminDelete />,
+    element: (
+      <AdminAuth>
+        <AdminDelete />
+      </AdminAuth>
+    ),
   },
   {
     path: "/admin/customer/orders",
-    element: <AdminCustOrder />,
+    element: (
+      <AdminAuth>
+        <AdminCustOrder />
+      </AdminAuth>
+    ),
   },
   {
     path: "/admin/customer/orders/:id",
-    element: <AdminCustOrderDetails />,
+    element: (
+      <AdminAuth>
+        <AdminCustOrderDetails />
+      </AdminAuth>
+    ),
   },
   {
-    path: "/test",
-    element: <AdminAuth />,
+    path: "/admin/login",
+    element:
+    
+    <AdminLogin />
+    ,
   },
-  
 ];
 const routesList: () => JSX.Element[] = () => {
   return routes.map((route, index) => {
@@ -54,11 +80,7 @@ const Routers = () => {
 };
 
 const ProtectedRoutes = () => {
-  return (
-    <AdminAuth>
-      <Routers />
-    </AdminAuth>
-  );
+  return <Routers />;
 };
 
 export default ProtectedRoutes;
