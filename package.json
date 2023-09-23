@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node ./dist/index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"node index.js\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --legacy-peer-deps --prefix client && npm run build --prefix client",
