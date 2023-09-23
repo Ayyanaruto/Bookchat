@@ -17,6 +17,8 @@
     "@types/cookie-session": "^2.0.44",
     "@types/history": "^4.7.9",
     "@types/passport": "^1.0.12",
+    "@types/react": "^18.2.22",
+    "@types/react-dom": "^18.2.7",
     "bcrypt": "^5.1.0",
     "cloudinary": "^1.37.3",
     "concurrently": "^8.2.0",
