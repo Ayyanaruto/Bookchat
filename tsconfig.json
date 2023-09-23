@@ -107,7 +107,7 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": [
-    "server/**/*" // include all files in the server directory and its subdirectories
+    "src/**/*" // include all files in the server directory and its subdirectories
 ],
 "exclude": [
     "node_modules",
