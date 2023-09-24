@@ -94,7 +94,7 @@ router.post(
   }
 );
 router.get(
-  "/products",requireAdmin,
+  "/products",
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const products: Product[] = await Products.find({});
@@ -105,7 +105,7 @@ router.get(
   }
 );
 router.get(
-  "/products/:id",requireAdmin,
+  "/products/:id",
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const product = await Products.findById(req.params.id);
