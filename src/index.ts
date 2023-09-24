@@ -47,11 +47,17 @@ export const razorpayInstance = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID as string,
   key_secret: process.env.RAZORPAY_KEY_SECRET as string,
 });
+
+//Routes Middleware
+app.use("/auth/google", authRoutes);
+app.use("/api", userApi);
+app.use("/api/admin", adminApi);
+app.use("/api/payment", checkoutRoutes);
 if (process.env.NODE_ENV === "production") {
   //Express will serve up production assets
   //like our main.js file or main.css file
 
-  app.use(express.static(path.join(__dirname,"../client/build")));
+  app.use(express.static(path.join(__dirname, "../client/build")));
 
   //Express will serve up the index.html file
   //if it doesn;t recognize the route
@@ -59,12 +65,8 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
   });
 }
-//Routes Middleware
-app.use("/auth/google", authRoutes);
-app.use("/api", userApi);
-app.use("/api/admin", adminApi);
-app.use("/api/payment", checkoutRoutes);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT||5000, () => {
   console.log("Server on port 5000");
 });
+
