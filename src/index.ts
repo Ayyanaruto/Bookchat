@@ -56,7 +56,7 @@ if (process.env.NODE_ENV === "production") {
   //Express will serve up the index.html file
   //if it doesn;t recognize the route
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
 //Routes Middleware
