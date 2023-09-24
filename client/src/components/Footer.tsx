@@ -51,12 +51,15 @@ const Footer = () => {
       </div>
       <div className="helpful-links">
         <h3>Helpful Links</h3>
-        <a href="/courses">Privacy Policy</a> |<a href="/lessons">Terms of Service</a> |
-        <a href="/snippets">Refund Policy</a> 
+        <a href="/courses">Privacy Policy</a> |
+        <a href="/lessons">Terms of Service</a> |
+        <a href="/snippets">Refund Policy</a>
       </div>
       <div className="footer-copyright">
         {new Date().getFullYear()} © Mystery Box Website by{" "}
-        <a href="https://www.iamshadmirza.com">PixelPunks</a>
+        <a href="https://www.linkedin.com/in/ayyan-shaikh-14872b231/">
+          PixelPunks
+        </a>
       </div>
     </footer>
   );

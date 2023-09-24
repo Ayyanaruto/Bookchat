@@ -8,31 +8,31 @@ import bcrypt from "bcrypt";
 import { requireAdmin } from "../../middlewares/requireLogin";
 
 const router = Router();
-router.post(
-  "/register",
-  async (req: Request, res: Response, next: NextFunction) => {
-    const { email, password, roles } = req.body;
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
-    Admins.findOne({ email: email }).then(async (admin) => {
-      if (admin) {
-        res.send("Admin already exists");
-      } else {
-        const admin: Admin = new Admins({
-          email,
-          password: hashedPassword,
-          roles,
-        });
-        try {
-          await admin.save();
-          res.send("Admin added successfully");
-        } catch (err) {
-          res.send(err);
-        }
-      }
-    });
-  }
-);
+// router.post(
+//   "/register",
+//   async (req: Request, res: Response, next: NextFunction) => {
+//     const { email, password, roles } = req.body;
+//     const salt = await bcrypt.genSalt(10);
+//     const hashedPassword = await bcrypt.hash(password, salt);
+//     Admins.findOne({ email: email }).then(async (admin) => {
+//       if (admin) {
+//         res.send("Admin already exists");
+//       } else {
+//         const admin: Admin = new Admins({
+//           email,
+//           password: hashedPassword,
+//           roles,
+//         });
+//         try {
+//           await admin.save();
+//           res.send("Admin added successfully");
+//         } catch (err) {
+//           res.send(err);
+//         }
+//       }
+//     });
+//   }
+// );
 router.post(
   "/login",
   async (req: Request, res: Response, next: NextFunction) => {

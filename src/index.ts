@@ -65,6 +65,6 @@ app.use("/api", userApi);
 app.use("/api/admin", adminApi);
 app.use("/api/payment", checkoutRoutes);
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen(PORT||5000, () => {
   console.log("Server on port 5000");
 });
