@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 mongoose
-  .connect("mongodb://0.0.0.0:27017/RetroRevamp")
+  .connect(process.env.MONGODB_URI as string)
   .then(() => console.log("DB is connected"))
   .catch((err) => console.log(err));
 //Cookie Session Middleware
