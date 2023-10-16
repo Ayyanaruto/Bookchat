@@ -31,12 +31,7 @@ export default class SimpleSlider extends Component {
                     <div>
                         <img src="https://res.cloudinary.com/dcwpxxcd9/image/upload/v1697481401/Sample%20images/images_jyogpw.jpg" className="slick-img"/>
                     </div>
-                    {/*<div>*/}
-                    {/*    <h3>5</h3>*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                    {/*    <h3>6</h3>*/}
-                    {/*</div>*/}
+
                 </Slider>
             </div>
         );
