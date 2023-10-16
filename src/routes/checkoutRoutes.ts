@@ -34,7 +34,7 @@ router.post("/verification",async (req: Request, res: Response) => {
   const{name,email,address,phone,quantity,product,user}=req.body.payload.payment.entity.notes;
    const shasum=crypto.createHmac('sha256',process.env.RAZORPAY_WEBHOOK_SECRET as string);
     console.log("In body" + process.env.RAZORPAY_WEBHOOK_SECRET )
-    console.log("Body"+ req.body[0])
+    console.log(req.body)
     shasum.update(JSON.stringify(req.body));
     const digest=shasum.digest('hex');
     console.log(digest,req.headers['x-razorpay-signature']);
