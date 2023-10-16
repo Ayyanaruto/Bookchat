@@ -2,8 +2,11 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router";
 
+
+
 import { fetch_products } from "../actions";
 import { ProductState } from "../actions/types";
+import SimpleSlider from "../utilities/SlideShow";
 import { RootState } from "../reducers";
 import Loading from "../utilities/Loading";
 import "../styles/HomePage.css"
@@ -68,10 +71,16 @@ const HomePage: (props: Props) => JSX.Element = (props) => {
     props.fetch_products();
   }, []);
 
-  return <div className="grid">
+  return (
+      <React.Fragment>
+        <SimpleSlider/>
+        <h1 className="avail_books">Available Books</h1>
+        <div className="line"></div>
+      <div className="grid">
+
     {renderProducts()}
-  </div>;
-};
+  </div>)</React.Fragment>)
+}
 
 const mapStateToProps = ({
   product,

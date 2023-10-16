@@ -24,7 +24,7 @@ const App = (): JSX.Element => {
         <Routes>{routesList()}</Routes>
       </div>
       <Protectedroutes />
-      <Footer/>
+      {/*<Footer/>*/}
     </BrowserRouter>
   );
 };
