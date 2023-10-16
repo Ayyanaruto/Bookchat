@@ -8,7 +8,7 @@
     "dev": "concurrently \"node ./dist/index.js\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --legacy-peer-deps --prefix client && npm run build --prefix client",
     "start": "node ./dist/index.js",
-    "postinstall": "NPM_CONFIG_PRODUCTION=false && npm install typescript && tsc"
+    "postinstall": "npm install typescript && tsc"
   },
   "engines": {
     "npm": ">=8.0.0 <9.0.0",
