@@ -20,7 +20,7 @@ const OrderDetailsSchema = new Schema({
     enum: ["Pending", "Processing", "Shipped", "Delivered", "Cancelled"],
   },
   date: {
-    type: Date,
+    type:String,
     default: new Date().toJSON().slice(0, 10).split("-").reverse().join("/"),
   },
 });
