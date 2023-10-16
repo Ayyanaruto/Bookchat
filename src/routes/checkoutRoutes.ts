@@ -1,5 +1,5 @@
-import { Router, Request, Response, response } from "express";
-import { requireAdmin, requireLogin } from "../middlewares/requireLogin";
+import { Router, Request, Response, } from "express";
+import { requireLogin } from "../middlewares/requireLogin";
 import { razorpayInstance } from "..";
 import OrderDetails from "../models/Checkout";
 import crypto from "crypto";
@@ -34,7 +34,7 @@ router.post("/verification",async (req: Request, res: Response) => {
   const{name,email,address,phone,quantity,product,user}=req.body.payload.payment.entity.notes;
    const shasum=crypto.createHmac('sha256',process.env.RAZORPAY_WEBHOOK_SECRET as string);
     console.log("In body" + process.env.RAZORPAY_WEBHOOK_SECRET )
-    console.log("Body"+req.body)
+    console.log("Body"+ req.body)
     shasum.update(JSON.stringify(req.body));
     const digest=shasum.digest('hex');
     console.log(digest,req.headers['x-razorpay-signature']);
