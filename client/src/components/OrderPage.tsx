@@ -46,9 +46,9 @@ const OrderPage: (props: OrderPageProps) => JSX.Element = (props) => {
     } else if (props.orders.isLoading) {
       return <Loading />;
     } else if (props.orders.error) {
-     
+     return props.orders.error
     } else if (props.orders.orders.length > 0) {
-      return props.orders.orders.map((order: any,i:any) => {
+      return props.orders.orders.map((order: any) => {
         const active=activeIndex(order)
         console.log(active)
         return (
