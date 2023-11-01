@@ -23,6 +23,7 @@ const OrderDetailsSchema = new Schema({
     type:String,
     default: new Date().toJSON().slice(0, 10).split("-").reverse().join("/"),
   },
+
 });
 
 const Order = mongoose.model<Order>("Order", OrderDetailsSchema);

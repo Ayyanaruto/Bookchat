@@ -1,9 +1,10 @@
-import mongoose from "mongoose";
+import mongoose, {Schema, Types} from "mongoose";
 
 const UserSchema = new mongoose.Schema({
     googleId: { type: String, required: true },
     email: { type: String, required: true },
     displayName: { type: String, required: true },
+    orders:[{type:Schema.Types.ObjectId,ref:"Order"}]
 
 })
 
