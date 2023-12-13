@@ -122,4 +122,9 @@ This will start the both Server and React application on http://localhost:3000.
 We hope this helps you get started with BookChat!
 
 
+| Name             | GitHub Profile                              |
+| ---------------- | ------------------------------------------- |
+|<img src="https://avatars.githubusercontent.com/u/72731349?v=4" width="100" height="100"> | [github.com/Ayyannaruto](https://github.com/Ayyanaruto) |
+
+
 
