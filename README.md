@@ -3,7 +3,7 @@ https://github.com/Ayyanaruto/MyssteryBox/assets/72731349/d6850c25-491b-4954-956
 
 <img src="https://github.com/Ayyanaruto/Ayyanaruto/blob/a8ab3ec2f7b0db200c750cd1f22c303d6a1c2a08/LINE.gif"><br><br>
 
-##  🤔 About Project
+##  🤔 About BookChat
 <p>Booksterz is a MERN stack project built in Typescript, hosted on https://www.myssterybox.in/. It features a seamless book-buying experience with Razorpay payment gateway integration. Users can authenticate with Google via Passport.js, buy/sell books, and utilize an "Add to Cart" feature. Address input is followed by a smooth payment process, generating a receipt upon successful transactions. On the admin side, functionalities include adding/updating books using Cloudinary widget, editing book details, deleting books, and managing delivery status</p>
 
 
