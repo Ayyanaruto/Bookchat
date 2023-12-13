@@ -36,7 +36,7 @@ https://github.com/Ayyanaruto/MyssteryBox/assets/72731349/d6850c25-491b-4954-956
 1. **Clone the BookChat repository:**
 
 ```
-git clone https://github.com/YOUR_USERNAME/BookChat.git
+git clone https://github.com/Ayyanaruto/BookChat.git
 cd BookChat
 ```
 
