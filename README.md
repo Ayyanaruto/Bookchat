@@ -20,7 +20,7 @@ https://github.com/Ayyanaruto/MyssteryBox/assets/72731349/d6850c25-491b-4954-956
 ![Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay&logoColor=3395FF)
 
 ## 📋 Installation Instructions
-## BookChat: A MERN Stack Project for Sharing Book Recommendations
+## BookChat: A MERN Stack Project for Buying/Selling Book Recommendations
 
 **BookChat** is a full-stack web application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) that allows users to share book recommendations and connect with fellow book lovers. This document outlines the installation and setup steps for the project.
 
