@@ -1,9 +1,10 @@
 .grid{
+
  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 20px;
   align-items: stretch;
- margin-top: 1rem;
+
  margin-left: 8rem;
  
 }
@@ -47,5 +48,15 @@
     margin-bottom: 0.5rem;
     
 
+}
+.avail_books{
+    text-align: center;
+    text-underline: #3B82F6;
+}
+.line {
+    height: 5px;
+    background: linear-gradient(to right, transparent , #223049), linear-gradient(to right, #9494ab, #6e6e91);
+    background-size: 100% ;
+    margin: 20px 10rem;
 }
 

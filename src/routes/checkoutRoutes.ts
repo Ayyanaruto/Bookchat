@@ -56,7 +56,7 @@ router.post("/verification",async (req: Request, res: Response) => {
     })
     try{
       const response=await orders.save();
-     console.log(response);
+
      res.status(200).json({status:"ok"});
      
     } 
@@ -71,9 +71,10 @@ router.post("/verification",async (req: Request, res: Response) => {
 });
 
 router.get("/orders",async (req: Request, res: Response) => {
+    const User= req.user as User;
   
   try {
-    const orders = await OrderDetails.find({ }).populate("product");
+    const orders = await OrderDetails.find({ user:User._id}).populate("product");
     res.status(200).json(orders);
   } catch (e) {
     console.log(e);

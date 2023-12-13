@@ -1,14 +1,14 @@
-.order-page{
- display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  grid-gap: 20px;
-  align-items: stretch;
- margin-top: 1rem;
- margin-left: 8rem;
 
+.order-page > div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin-left: 8rem;
 }
-.order-card{
 
+.order-card{
     border-radius: 5px;
     background-color: var(--bg-primary);
    width: fit-content;
@@ -28,7 +28,7 @@ font-size: larger;}
 .order-details{
     display: flex;
     flex-direction: row;
-   align-items: center;   
+   align-items: center;
    background-color: #252539;
    margin: 1rem;
    box-shadow:   0 0 10px 0 rgba(0,0,0,0.2);
@@ -91,7 +91,7 @@ font-size: larger;}
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--text-primary);
-  
+
 }
 
 .order-receipt-body-items-name{
@@ -106,7 +106,7 @@ font-size: larger;}
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-  
+
     margin: 1rem;
 
 
@@ -118,4 +118,4 @@ font-size: larger;}
         margin: 0.5rem;
     }
 }
-    
+

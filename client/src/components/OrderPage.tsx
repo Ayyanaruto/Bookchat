@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
+
 import { fetch_orders } from "../actions";
 import LoginStatus from "../utilities/LoginStatus";
 import { Logo } from "../icons/icons";
@@ -52,6 +53,7 @@ const OrderPage: (props: OrderPageProps) => JSX.Element = (props) => {
         const active=activeIndex(order)
         console.log(active)
         return (
+
           <div className="order-card" key={order._id}>
             <div className="order-card-header">
               Thanks for your order {order.name}!
@@ -140,6 +142,7 @@ const OrderPage: (props: OrderPageProps) => JSX.Element = (props) => {
               </div>
             </div>
           </div>
+
         );
       });
     }
@@ -147,7 +150,11 @@ const OrderPage: (props: OrderPageProps) => JSX.Element = (props) => {
 
   return (
     <div className="order-page">
-      <LoginStatus>{reenderOrders()}</LoginStatus>
+      <LoginStatus>{
+
+        reenderOrders()
+
+      }</LoginStatus>
     </div>
   );
 };
