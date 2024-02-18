@@ -2,6 +2,7 @@ import { Router, Request, Response, } from "express";
 import { requireLogin } from "../middlewares/requireLogin";
 import { razorpayInstance } from "..";
 import OrderDetails from "../models/Checkout";
+import Product from "../models/Products"
 import crypto from "crypto";
 import { User } from "../types";
 const router = Router();
@@ -55,6 +56,7 @@ router.post("/verification",async (req: Request, res: Response) => {
 
     })
     try{
+    console.log(orders)
       const response=await orders.save();
 
      res.status(200).json({status:"ok"});
@@ -75,6 +77,7 @@ router.get("/orders",async (req: Request, res: Response) => {
   
   try {
     const orders = await OrderDetails.find({ user:User._id}).populate("product");
+
     res.status(200).json(orders);
   } catch (e) {
     console.log(e);

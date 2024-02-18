@@ -125,3 +125,8 @@
     height: 500px;
 
 }
+@media screen and (max-width: 768px){
+ .slick-slider{
+     margin-left:2rem;
+ }
+}

@@ -111,14 +111,7 @@ transform: rotate(-540deg);
   .navbar:hover{
     width: 100vw;
   }
-  .navbar:hover .link-text{
-    position: absolute;
-   bottom: 100%;
-    margin: 1rem;
-    font-weight: bolder;
-    transition:all 600ms;
- 
-}
+
 .navbar .link-text{
     display: inline;
     position: absolute;
